@@ -20,6 +20,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleMenuClose = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="bg-gradient-to-r from-gray-300 to-gray-100 text-gray-800 p-4 shadow-lg fixed w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
@@ -52,7 +56,7 @@ const Navbar = () => {
 
         {/* Menu Links (Desktop and Mobile) */}
         <ul
-          className={`lg:flex lg:space-x-6 items-center   font-semibold transform transition-transform duration-500 ${
+          className={`menu-container lg:flex lg:space-x-6 items-center font-semibold transform transition-transform duration-500 ${
             isMenuOpen
               ? "absolute left-0 top-0 bg-gradient-to-r from-gray-300 to-gray-100 w-2/3 h-screen p-8 flex flex-col items-start z-50 ease-in-out"
               : "hidden lg:flex"
@@ -62,6 +66,7 @@ const Navbar = () => {
             <Link
               to="/"
               className="hover:text-gray-600 transition duration-300 ease-in-out"
+              onClick={handleMenuClose}
             >
               Home
             </Link>
@@ -70,6 +75,7 @@ const Navbar = () => {
             <Link
               to="/about"
               className="hover:text-gray-600 transition duration-300 ease-in-out"
+              onClick={handleMenuClose}
             >
               About
             </Link>
@@ -78,20 +84,21 @@ const Navbar = () => {
             <Link
               to="/contact"
               className="hover:text-gray-600 transition duration-300 ease-in-out"
+              onClick={handleMenuClose}
             >
-              Contact Us
+              Contact
             </Link>
           </li>
         </ul>
       </div>
 
       {/* Overlay Effect with Smooth Fade */}
-      <div
-        className={`lg:hidden fixed inset-0 bg-black opacity-50 transition-opacity duration-300 ${
-          isMenuOpen ? "block" : "hidden"
-        }`}
-        onClick={() => setIsMenuOpen(false)}
-      ></div>
+      {isMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black opacity-50 transition-opacity duration-300 z-40"
+          onClick={handleMenuClose}
+        ></div>
+      )}
     </nav>
   );
 };
