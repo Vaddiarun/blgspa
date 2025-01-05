@@ -9,13 +9,13 @@ const About = () => {
       rating: 5,
     },
     {
-      name: "lalitha",
+      name: "yasmeen",
       review:
         "Convenient, relaxing, and worth every penny. Will definitely book again!",
       rating: 4,
     },
     {
-      name: "binu",
+      name: "bhanu",
       review:
         "Loved the experience! Perfect for unwinding after a long day. Excellent service.",
       rating: 5,
