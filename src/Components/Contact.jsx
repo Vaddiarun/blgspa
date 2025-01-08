@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom"; // Use useNavigate hook
+import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa"; // Importing icons for WhatsApp, Instagram, and Facebook
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +10,6 @@ const Contact = () => {
     email: "",
     message: "",
   });
-
-  const navigate = useNavigate(); // Correct use of the useNavigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,35 +22,32 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Template Parameters for EmailJS
     const templateParams = {
       user_name: formData.name,
       user_email: formData.email,
       message: formData.message,
     };
 
-    // Send email using EmailJS
     emailjs
       .send(
-        "service_5lggkcv", // Your EmailJS service ID
-        "template_im7r0td", // Your EmailJS template ID
+        "service_5lggkcv",
+        "template_im7r0td",
         templateParams,
-        "3BSh4FwmsTyP7ihVo" // Your EmailJS public key
+        "3BSh4FwmsTyP7ihVo"
       )
       .then(
         (response) => {
           console.log("Email sent successfully:", response);
           toast.success("Message sent successfully!", {
             position: "top-center",
-          }); // Success toast
-          setFormData({ name: "", email: "", message: "" }); // Clear the form
-          //   navigate("/"); // Redirect to home page after success
+          });
+          setFormData({ name: "", email: "", message: "" });
         },
         (error) => {
           console.error("Failed to send email:", error);
           toast.error("Failed to send message. Please try again.", {
             position: "top-center",
-          }); // Error toast
+          });
         }
       );
   };
@@ -141,6 +136,56 @@ const Contact = () => {
             </button>
           </div>
         </form>
+      </section>
+
+      {/* Social Media Links */}
+      <section className="mt-8 text-center">
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Follow Us</h3>
+        <div className="flex justify-center space-x-6">
+          <a
+            href="https://teams.microsoft.com/l/message/48:notes/1736354415654?context=%7B%22contextType%22%3A%22chat%22%7D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#fac76e] hover:text-pink-400 text-3xl"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#fac76e] hover:text-blue-500 text-3xl"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://wa.me/6363595881"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#fac76e] hover:text-green-500 text-3xl"
+          >
+            <FaWhatsapp />
+          </a>
+        </div>
+      </section>
+
+      {/* Google Maps Embed */}
+      <section className="mt-8">
+        <h3 className="text-2xl font-semibold text-gray-800 text-center mb-4">
+          Find Us on Google Maps
+        </h3>
+        <div className="w-full h-72">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9799471959413!2d77.6442835!3d12.909010300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15a09b068ddf%3A0x707a56737d3b5fe!2sTiara%20Doorstep%20Spa!5e0!3m2!1sen!2sin!4v1736354152023!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            aria-hidden="false"
+            tabIndex="0"
+          ></iframe>
+        </div>
       </section>
 
       {/* Toast container */}

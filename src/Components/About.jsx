@@ -34,7 +34,7 @@ const About = () => {
   };
 
   return (
-    <div className="container mx-auto py-16 px-4 bg-gray-50 ">
+    <div className="container mx-auto py-16 px-4 bg-[#f2f2f2] ">
       {/* About Us Section */}
       <h2 className="text-3xl font-semibold text-gray-700 mb-6 text-center mt-8">
         About Us

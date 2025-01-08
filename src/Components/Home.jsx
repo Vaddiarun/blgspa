@@ -3,6 +3,7 @@ import emailjs from "emailjs-com"; // Import emailjs library
 import { ToastContainer, toast } from "react-toastify";
 
 // Massage types including Breast and Booty sections
+// Massage types including the newly added massages
 const massageTypes = [
   {
     title: "Aromatherapy",
@@ -31,16 +32,41 @@ const massageTypes = [
   {
     title: "Breast Massage",
     image:
-      "https://th.bing.com/th/id/OIP.vFHKaQPlvm18-GtlpyoAQwAAAA?w=236&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7", // Replace with an actual image
+      "https://th.bing.com/th/id/OIP.vFHKaQPlvm18-GtlpyoAQwAAAA?w=236&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
     desc: "For sagging and firmness.",
   },
   {
     title: "Booty Sculpting",
     image:
-      "https://th.bing.com/th/id/OIP.V---_sQtslhYzb1tS0O97QHaGo?w=179&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7", // Replace with an actual image
+      "https://th.bing.com/th/id/OIP.V---_sQtslhYzb1tS0O97QHaGo?w=179&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
     desc: "Get fit and sculpted booties.",
   },
+  {
+    title: "Full Body Oil Massage",
+    image:
+      "https://media.istockphoto.com/id/1456127883/photo/massage-therapy-for-relaxing-with-oil.webp?a=1&b=1&s=612x612&w=0&k=20&c=HJySbeVQYeEQmNIJr6YYy-VJgLrYK9XAWCgs2yoPXtI=",
+    desc: "Indulge in a relaxing full-body oil massage for ultimate relaxation and stress relief.",
+  },
+  {
+    title: "Tantra Massage",
+    image:
+      "https://media.istockphoto.com/id/1158069523/photo/close-up-of-a-beautiful-woman-receiving-back-massage-at-spa.webp?a=1&b=1&s=612x612&w=0&k=20&c=EEK7MUnksL7vE-5_aFPm4vW6TeXL7vjinU6jQcFqHRI=",
+    desc: "An intimate and spiritual experience to harmonize body and mind.",
+  },
+  {
+    title: "Deep Tissue Massage Therapy",
+    image:
+      "https://th.bing.com/th/id/OIP.IV7VcB5XOQP6FSzkSi1E5AHaFV?w=239&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7g",
+    desc: "Target deep layers of muscle for pain relief and improved flexibility.",
+  },
+  {
+    title: "Relaxation Massage Therapy",
+    image:
+      "https://media.istockphoto.com/id/626353880/photo/ayurveda-oil-treatment.webp?a=1&b=1&s=612x612&w=0&k=20&c=kL3WlPrJEf86nVHhyqWqXhijqReIQUHf34ZCv1SNACo=",
+    desc: "Experience peace and tranquility with a calming relaxation massage.",
+  },
 ];
+
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -102,9 +128,9 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gray-100">
-      <header className="text-center py-16 bg-gray-600 text-white">
-        <h1 className="text-4xl font-extrabold mt-7 animate-fall-from-top">
+    <div className="bg-[#591f04] opacity-[100]">
+      <header className="text-center py-16 bg-[#461f0c] opacity-[100] text-[#fac76e]">
+        <h1 className="text-2xl lg:text-4xl font-extrabold mt-7 animate-fall-from-top">
           Professional Massage at Your Doorstep
         </h1>
         <p className="mt-4 text-lg animate-fall-from-top">
@@ -112,7 +138,7 @@ const Home = () => {
         </p>
       </header>
       <section className="container mx-auto py-10 px-4">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">
+        <h2 className="text-2xl font-semibold text-[#f5d777df] mb-6 text-center">
           Our Premium Massage Services
         </h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -127,26 +153,26 @@ const Home = () => {
                 alt={type.title}
                 className="w-full h-48 object-cover rounded-md"
               />
-              <h3 className="text-xl font-semibold text-gray-800 mt-4">
+              <h3 className="text-xl font-semibold text-[#f5d777df] mt-4">
                 {type.title}
               </h3>
-              <p className="text-gray-600">{type.desc}</p>
+              <p className="text-[#ea9a38df]">{type.desc}</p>
             </div>
           ))}
         </div>
       </section>
-
+   
       {/* Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 transition-opacity duration-500"
+          className="fixed inset-0 flex justify-center items-center bg-[#591f04] bg-opacity-50 transition-opacity duration-500"
           onClick={closeModal}
         >
           <div
             className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full transform transition-all duration-500 ease-in-out"
             onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-2xl font-semibold text-[#f5d777df] mb-4">
               {selectedMassage?.title}
             </h3>
             <p className="text-gray-600 mb-6">{selectedMassage?.desc}</p>
@@ -181,7 +207,7 @@ const Home = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full bg-[#591f04] text-[#fac76e] py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 Submit
               </button>
@@ -192,13 +218,13 @@ const Home = () => {
 
       {/* Floating WhatsApp Icon */}
       <a
-        href="https://wa.me/7989759695" // Replace with your WhatsApp number
+        href="https://wa.me/6363595881" // Replace with your WhatsApp number
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-50 bg-transprent rounded-full p-4 shadow-lg transition-all duration-300"
       >
         <img
-          src="https://th.bing.com/th/id/OIP.vBzeU65JZbukjmEX9q50xgHaHZ?w=174&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png"
           alt="WhatsApp"
           className="w-12 h-12"
         />

@@ -25,11 +25,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-gray-300 to-gray-100 text-gray-800 p-4 shadow-lg fixed w-full z-50">
+    <nav className="bg-gradient-to-r from-[#591f04] to-[#591f04] text-[#fac76e] p-4 shadow-lg fixed w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/">
-          <h1 className="text-2xl font-extrabold text-gray-800">MassagePro</h1>
+          <h1 className="text-2xl font-extrabold text-[#fac76e]">
+            Tiara Doorestep Spa
+          </h1>
         </Link>
 
         {/* Hamburger Menu Button for Mobile */}
@@ -38,17 +40,17 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <span
-            className={`block w-8 h-0.5 bg-gray-800 mb-2 transition-transform duration-300 ${
+            className={`block w-8 h-0.5 bg-[#fac76e] mb-2 transition-transform duration-300 ${
               isMenuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           ></span>
           <span
-            className={`block w-8 h-0.5 bg-gray-800 mb-2 transition-opacity duration-300 ${
+            className={`block w-8 h-0.5 bg-[#fac76e] mb-2 transition-opacity duration-300 ${
               isMenuOpen ? "opacity-0" : "opacity-100"
             }`}
           ></span>
           <span
-            className={`block w-8 h-0.5 bg-gray-800 transition-transform duration-300 ${
+            className={`block w-8 h-0.5 bg-[#fac76e] transition-transform duration-300 ${
               isMenuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           ></span>
@@ -58,14 +60,14 @@ const Navbar = () => {
         <ul
           className={`menu-container lg:flex lg:space-x-6 items-center font-semibold transform transition-transform duration-500 ${
             isMenuOpen
-              ? "absolute left-0 top-0 bg-gradient-to-r from-gray-300 to-gray-100 w-2/3 h-screen p-8 flex flex-col items-start z-50 ease-in-out"
+              ? "absolute left-0 top-0 bg-gradient-to-r from-[#591f04] to-[#591f04] w-2/3 h-screen p-8 flex flex-col items-start z-50 ease-in-out"
               : "hidden lg:flex"
           }`}
         >
           <li className="my-4 lg:my-0">
             <Link
               to="/"
-              className="hover:text-gray-600 transition duration-300 ease-in-out"
+              className="hover:text-[#fff] transition duration-300 ease-in-out"
               onClick={handleMenuClose}
             >
               Home
@@ -74,7 +76,7 @@ const Navbar = () => {
           <li className="my-4 lg:my-0">
             <Link
               to="/about"
-              className="hover:text-gray-600 transition duration-300 ease-in-out"
+              className="hover:text-[#fff] transition duration-300 ease-in-out"
               onClick={handleMenuClose}
             >
               About
@@ -83,7 +85,7 @@ const Navbar = () => {
           <li className="my-4 lg:my-0">
             <Link
               to="/contact"
-              className="hover:text-gray-600 transition duration-300 ease-in-out"
+              className="hover:text-[#fff] transition duration-300 ease-in-out"
               onClick={handleMenuClose}
             >
               Contact
