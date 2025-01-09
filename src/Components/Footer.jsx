@@ -9,19 +9,20 @@ const Footer = () => {
         <p>Contact us:</p>
         <p className="mb-2">
           <a
-            href="tel:+6363595881"
+            href="tel:+916363595881"
             className="text-[#fac76e] hover:underline flex items-center justify-center mb-2"
           >
-            <span className="mr-2">📞</span>Call: 6363595881
+            <span className="mr-2">📞</span>Call: +91 6363595881
           </a>{" "}
           |{" "}
           <a
-            href="https://wa.me/6363595881"
+            href="https://wa.me/916363595881"
             className="text-[#fac76e] hover:underline flex items-center justify-center"
           >
-            <FaWhatsapp className="mr-2 text-2xl" /> WhatsApp: 6363595881
+            <FaWhatsapp className="mr-2 text-2xl" /> WhatsApp: +91 6363595881
           </a>
         </p>
+
         <div className="mt-4 flex justify-center">
           <a
             href="https://www.instagram.com"

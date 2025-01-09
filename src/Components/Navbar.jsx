@@ -30,7 +30,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/">
           <h1 className="text-2xl font-extrabold text-[#fac76e]">
-            Tiara Doorestep Spa
+            Tiara Door step Spa
           </h1>
         </Link>
 
